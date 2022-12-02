@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import pl.coderslab.charity.service.SpringDataUserDetailsService;
+import pl.coderslab.charity.service.implementation.SpringDataUserDetailsService;
 
 
 @Configuration
@@ -21,6 +21,7 @@ public class SecurityConfig {
                 .antMatchers("/admin/*").authenticated()
                 .antMatchers("/app/*").authenticated()
                 .and().formLogin()
+                .loginPage("/login")
                 .permitAll();
         return http.build();
     }

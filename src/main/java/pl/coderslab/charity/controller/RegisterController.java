@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.charity.model.RegisterDTO;
 import pl.coderslab.charity.model.User;
-import pl.coderslab.charity.service.UserService;
+import pl.coderslab.charity.service.implementation.UserServiceImpl;
 
 import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @Controller
 public class RegisterController {
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register(Model model) {

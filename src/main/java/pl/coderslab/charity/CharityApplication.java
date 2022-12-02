@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.coderslab.charity.model.Role;
 import pl.coderslab.charity.model.User;
-import pl.coderslab.charity.service.RoleService;
-import pl.coderslab.charity.service.UserService;
+import pl.coderslab.charity.service.implementation.RoleServiceImpl;
+import pl.coderslab.charity.service.implementation.UserServiceImpl;
 
 @SpringBootApplication
 public class CharityApplication {
@@ -18,7 +18,7 @@ public class CharityApplication {
 
 
     @Bean
-    CommandLineRunner init(UserService userService, RoleService roleService) { //funkcja ktora uruchamia sie podczas startu aplikacji (za kazdym razem)
+    CommandLineRunner init(UserServiceImpl userService, RoleServiceImpl roleService) { //funkcja ktora uruchamia sie podczas startu aplikacji (za kazdym razem)
         return (args) -> {
 
             if (roleService.findByName("ROLE_ADMIN") == null) { //patrzymy czy mamy role admin i jesli nie to ja tworzymy

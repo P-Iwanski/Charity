@@ -5,16 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.model.Institution;
-import pl.coderslab.charity.service.DonationService;
-import pl.coderslab.charity.service.InstitutionService;
+import pl.coderslab.charity.service.implementation.DonationServiceImpl;
+import pl.coderslab.charity.service.implementation.InstitutionServiceImpl;
 
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class HomeController {
-    private final InstitutionService institutionService;
-    private final DonationService donationService;
+    private final InstitutionServiceImpl institutionService;
+    private final DonationServiceImpl donationService;
 
     @RequestMapping("/")
     public String home(Model model){

@@ -4,24 +4,21 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.charity.model.*;
-import pl.coderslab.charity.service.CategoryService;
-import pl.coderslab.charity.service.DonationService;
-import pl.coderslab.charity.service.InstitutionService;
+import pl.coderslab.charity.service.implementation.CategoryServiceImpl;
+import pl.coderslab.charity.service.implementation.DonationServiceImpl;
+import pl.coderslab.charity.service.implementation.InstitutionServiceImpl;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 public class DonationController {
-    private final InstitutionService institutionService;
-    private final DonationService donationService;
-    private final CategoryService categoryService;
+    private final InstitutionServiceImpl institutionService;
+    private final DonationServiceImpl donationService;
+    private final CategoryServiceImpl categoryService;
 
 
 
