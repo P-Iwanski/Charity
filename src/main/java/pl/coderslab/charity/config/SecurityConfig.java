@@ -21,7 +21,7 @@ public class SecurityConfig {
                 .antMatchers("/admin/*").authenticated()
                 .antMatchers("/app/*").authenticated()
                 .and().formLogin()
-                .loginPage("/login")
+                //   .loginPage("/login")
                 .permitAll();
         return http.build();
     }

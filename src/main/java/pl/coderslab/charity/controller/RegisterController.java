@@ -12,6 +12,7 @@ import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.implementation.UserServiceImpl;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -39,7 +40,15 @@ public class RegisterController {
 
     }
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
+    public String login(Model model, User user) {
+        model.addAttribute("user", user);
         return "login";
     }
+    @RequestMapping(value = "/admin/list", method = RequestMethod.GET)
+    public String users(Model model) {
+        List<User> usersList = userService.findAll();
+        model.addAttribute("users", usersList);
+        return "userList";
+    }
+    //Soft Delete
 }

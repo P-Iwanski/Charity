@@ -10,7 +10,6 @@ import pl.coderslab.charity.repository.RoleRepository;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -30,13 +29,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(u);
     }
     @Override
-    public User saveAdmin(User u) {
-        u.setPassword(passwordEncoder.encode(u.getPassword()));
+    public void saveAdmin(User u) {
         u.setEnabled(1);
-        Role userRole = roleRepository.findByName("ROLE_USER");
-        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
-        u.setRoles(new HashSet<Role>(Arrays.asList(userRole,adminRole)));
-        return userRepository.save(u);
     }
     @Override
     public List<User> findAll() {
@@ -60,7 +54,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByEmail(String email) {
+    public User findByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public Optional<User> get(Long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteUserById(id);
     }
 }

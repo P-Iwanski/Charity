@@ -9,12 +9,15 @@ import java.util.Optional;
 public interface UserService {
 
     User save(User u);
-    User saveAdmin(User u);
+    void saveAdmin(User u);
     List<User> findAll();
     User findByLastName(String lastName);
     User registerUser(RegisterDTO dto);
 
     void update(User user);
-    Optional<User> findByEmail(String email);
+    User findByEmail(String email);
+    Optional<User> get(Long id);
+
+    void delete(Long id);
 
 }

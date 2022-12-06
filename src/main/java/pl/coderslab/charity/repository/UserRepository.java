@@ -17,10 +17,12 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query("select u from User u where u.lastName=:lastName")
     User findByLastName(@Param("lastName") String lastName);
 
-    Optional<User> findByEmail(String email);
+    @Query("select u from User u where u.email=:email")
+    User findByEmail(@Param("email") String email);
 
     List<User> findAll();
 
     @Modifying
     void deleteUserById(Long id);
+
 }

@@ -17,28 +17,5 @@ public class CharityApplication {
     }
 
 
-    @Bean
-    CommandLineRunner init(UserServiceImpl userService, RoleServiceImpl roleService) { //funkcja ktora uruchamia sie podczas startu aplikacji (za kazdym razem)
-        return (args) -> {
 
-            if (roleService.findByName("ROLE_ADMIN") == null) { //patrzymy czy mamy role admin i jesli nie to ja tworzymy
-                Role r = new Role();
-                r.setName("ROLE_ADMIN");
-                roleService.save(r);
-            }
-            if (roleService.findByName("ROLE_USER") == null) { //analogicznie do roli wyzej
-                Role r = new Role();
-                r.setName("ROLE_USER");
-                roleService.save(r);
-            }
-            if (userService.findByLastName("admin") == null) { //tworze admina
-
-                User user = new User();
-                user.setFirstName("Super user");
-                user.setLastName("admin");
-                user.setPassword("admin");
-                userService.saveAdmin(user);
-            }
-        };
-    }
 }

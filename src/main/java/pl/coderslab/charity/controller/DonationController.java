@@ -35,6 +35,6 @@ public class DonationController {
     @RequestMapping(value = "/app/form", method = RequestMethod.POST)
    public String save(Model model, Donation donation) {
         donationService.add(donation);
-        return "index";
+        return "form-confirmation";
    }
 }

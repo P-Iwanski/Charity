@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -97,10 +97,12 @@
             <li>
                 <c:forEach var="inst" items="${institutions}" varStatus="i">
                     <c:if test="${i.index%2 != 0}">
-                <div class="col">
-                    <div class="title">Fundacja  ${inst.name}</div>
-                    <div class="subtitle">Cel i misja: ${inst.description}</div>
-                </div>
+                        <div class="col">
+                            <div class="title">Fundacja ${inst.name}</div>
+                            <br>
+                            <div class="subtitle">Cel i misja: ${inst.description}</div>
+                        </div>
+                        <br>
                     </c:if>
                 </c:forEach>
             </li>
@@ -108,26 +110,15 @@
             <li>
                 <c:forEach var="inst" items="${institutions}" varStatus="i">
                     <c:if test="${i.index%2 == 0}">
-                <div class="col">
-                    <div class="title">Fundacja ${inst.name}</div>
-                    <div class="subtitle">Cel i misja: ${inst.description}</div>
-                </div>
+                        <div class="col">
+                            <div class="title">Fundacja ${inst.name}</div>
+                            <br>
+                            <div class="subtitle">Cel i misja: ${inst.description}</div>
+                            <br>
+                        </div>
                     </c:if>
                 </c:forEach>
             </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
         </ul>
     </div>
 
